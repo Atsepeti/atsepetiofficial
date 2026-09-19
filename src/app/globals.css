@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-lilita), "Arial Black", cursive;
+  --font-sans: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream: #faf3e7;
+  --color-parchment: #f3e8d2;
+  --color-sand: #e8d9bd;
+  --color-ink: #241708;
+  --color-coffee: #3b2a16;
+  --color-mocha: #6b5232;
+  --color-hay: #f0a63c;
+  --color-haydark: #d98a1f;
+  --color-brick: #c6362c;
+  --color-grass: #3e7a3f;
+  --color-grassdark: #2c5a2e;
+  --color-skyblue: #8fc6e8;
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-wiggle: wiggle 1.6s ease-in-out infinite;
+  --animate-gallop: gallop 0.55s ease-in-out infinite;
+  --animate-drift: drift 26s linear infinite;
+  --animate-pop: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-2.5deg);
+    }
+    50% {
+      transform: rotate(2.5deg);
+    }
+  }
+  @keyframes gallop {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    30% {
+      transform: translateY(-5px) rotate(-3deg);
+    }
+    60% {
+      transform: translateY(1px) rotate(2deg);
+    }
+  }
+  @keyframes drift {
+    from {
+      transform: translateX(-10%);
+    }
+    to {
+      transform: translateX(110vw);
+    }
+  }
+  @keyframes pop {
+    from {
+      transform: scale(0.6);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+body {
+  background-color: var(--color-cream);
+}
+
+.texture-noise {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='0.045'/></svg>");
+}
+
+.checkered {
+  background-image: repeating-conic-gradient(#241708 0% 25%, #faf3e7 0% 50%);
+  background-size: 22px 22px;
+}
+
+.text-outline {
+  -webkit-text-stroke: 2px #241708;
+  color: transparent;
+}
+
+.sticker {
+  border: 2px solid #241708;
+  box-shadow: 3px 4px 0 #241708;
+}
+
+::selection {
+  background: #f0a63c;
+  color: #241708;
+}
+
+html {
+  scroll-behavior: smooth;
+}
